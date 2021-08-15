@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(44, 44, 44);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+}
+
+h1{
+    text-align: center;
+    font-size: 120px;
+    color: yellow;
+    text-shadow: 2px 2px red;
+    
+}
+
+h2{
+    text-align: center;
+    color: yellow;
+    font-size: 36px;
+    text-shadow: 2px 2px red;
+}
+
+h3{
+    text-align: center;
+    color:red;
+    text-shadow: .5px .5px yellow;
+}
+
+h4{
+    text-align: center;
+    color: green;
+    font-size: 36px;
+}
+
+#banner{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#info{
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    
+}
+
+
+.carI{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carP{
+    display: block;
+    margin-left: 25%;
+    margin-right: 25%;
+}
