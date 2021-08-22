@@ -8,7 +8,7 @@
 
 //ask user to pick one
 
-//display list of ferrari
+//display list of ferraris
 
 //ask user to pick one
 
@@ -24,14 +24,14 @@
 //[name, price, engine, hp, torque, mpg, topspeed, 0-60]
 //["","","","","","","",""]
 //normal
-const corolla = ["[1] 2021 Toyota Corolla","From $20,025","2.0L I4","169 hp","126 lb-ft","31 city / 40 highway","118 mph","8.2 sec"];
-const accord = ["[2] 2021 Honda Accord", "From $24,970","2.0L Turbocharged I4","252 hp","273 lb-ft","30 city / 38 highway","115 mph","7.2 sec"];
-const mustang = ["[3] 2021 Ford Mustang GT","From $36,285","5.0L Ti-VCT V-8","460 hp","420 lb-ft","15 city / 24 highway","155 mph","4.4 sec"];
+const corolla = ["2021 Toyota Corolla","From $20,025","2.0L I4","169 hp","126 lb-ft","31 city / 40 highway","118 mph","8.2 sec"];
+const accord = ["2021 Honda Accord","From $24,970","2.0L Turbocharged I4","252 hp","273 lb-ft","30 city / 38 highway","115 mph","7.2 sec"];
+const mustang = ["2021 Ford Mustang GT","From $36,285","5.0L Ti-VCT V-8","460 hp","420 lb-ft","15 city / 24 highway","155 mph","4.4 sec"];
 
 //ferrari
+const enzo = ["2003 Ferrari Enzo","From $643,330","6.0L DOHC V12","651 hp","485 lb-ft","8 city / 12 highway ","218 mph","3.3 sec"];
 const italia = ["2015 Ferrari 458 Italia","From $245,000","4.5L V8","562 hp","398 lb-ft","13 city / 17 highway","202 mph","3.4 sec"];
-const enzo = ["2003 Ferrari Enzo","Was $643,330 / Now $2,530,000","6.0L DOHC V12","651 hp","485 lb-ft","8 city / 12 highway","218 mph","3.3 sec"];
-const gtb = ["2022 Ferrari 296 GTB","$321,000","3.0L Twin-Turbo V6/165hp Electric","819 hp","546 lb-ft","Unknown","205 mph","2.9 sec"];
+const gtb = ["2022 Ferrari 296 GTB","From $321,000","3.0L Twin-Turbo V6/165hp Electric","819 hp","546 lb-ft","Unknown ","205 mph","2.9 sec"];
 
 //The script should only run if the link is clicked.
 // Wait for the page to load first
@@ -47,28 +47,27 @@ window.onload = function() {
 
         //ask user to choose normal car
         alert("This tool will let you see the difference between modern normal cars and a Ferrari!");
-        let nChoice = Number(prompt("First, please choose a normal car:\r\n"
-        + corolla[0]+"\r\n"+accord[0]+"\r\n"+mustang[0]+"\r\nPlease eenter the number of the car you would like."));
+        let nChoice = Number(prompt("First, please choose a normal car:\r\n[1] "
+        + corolla[0]+"\r\n[2] "+accord[0]+"\r\n[3] "+mustang[0]+"\r\nPlease eenter the number of the car you would like."));
         
         //validate input
         while(isNaN(nChoice) || nChoice < 1 || nChoice > 3)
         {
             alert("Not a valid input, please only enter the number of the car you would like to choose.");
-            nChoice = Number(prompt("First, please choose a normal car:\r\n"
-            + corolla[0]+"\r\n"+accord[0]+"\r\n"+mustang[0]+"\r\nPlease eenter the number of the car you would like."));
+            nChoice = Number(prompt("First, please choose a normal car:\r\n[1] "
+            + corolla[0]+"\r\n[2] "+accord[0]+"\r\n[3] "+mustang[0]+"\r\nPlease eenter the number of the car you would like."));
         }
         
-        //ask user to chose ferrari
-        
-        let fChoice = Number(prompt("Now, please chose a Ferrari!:\r\n"
-        + enzo[0]+"\r\n"+italia[0]+"\r\n"+gtb[0]+"\r\nPlease eenter the number of the car you would like."));
+        //ask user to chose ferrari    
+        let fChoice = Number(prompt("Now, please chose a Ferrari!:\r\n[1] "
+        + enzo[0]+"\r\n[2] "+italia[0]+"\r\n[3] "+gtb[0]+"\r\nPlease eenter the number of the car you would like."));
 
         //validate input 
         while(isNaN(fChoice) || fChoice < 1 || fChoice > 3)
         {
             alert("Not a valid input, please only enter the number of the car you would like to choose.");
-            fChoice = Number(prompt("Now, please chose a Ferrari!:\r\n"
-            + enzo[0]+"\r\n"+italia[0]+"\r\n"+gtb[0]+"\r\nPlease eenter the number of the car you would like."));
+            fChoice = Number(prompt("Now, please chose a Ferrari!:\r\n[1] "
+            + enzo[0]+"\r\n[2] "+italia[0]+"\r\n[3] "+gtb[0]+"\r\nPlease eenter the number of the car you would like."));
         }
         DisplayCompare(nChoice,fChoice);
 
@@ -77,10 +76,41 @@ window.onload = function() {
 
     //function to display comparison
     function DisplayCompare(n,f){
-        //decide which car is chosen.
+        //decide which nomral car is chosen.
+        let chosenN;
         if(n === 1){
-            
+            chosenN = corolla;
+        }else if(n === 2){
+            chosenN = accord;
+        }else if(n === 3){
+            chosenN = mustang;
         }
+        
+        //decide which ferrari is chosen.
+        let chosenF;
+        if(f === 1){
+            chosenF = enzo;
+        }else if(f === 2){
+            chosenF = italia;
+        }else if(f === 3){
+            chosenF = gtb;
+        }
+
+        //.padEnd(33)
+
+        //display comparison
+        console.log(
+            "Car:          "+chosenN[0].padEnd(33) +chosenF[0]+"\n"+            
+            "Price:        "+chosenN[1].padEnd(33) +chosenF[1] +"\n"+
+            "Engine:       "+chosenN[2].padEnd(33) +chosenF[2] +"\n"+
+            "Horsepower:   "+chosenN[3].padEnd(33) +chosenF[3] +"\n"+
+            "Torque:       "+chosenN[4].padEnd(33) +chosenF[4] +"\n"+
+            "Gas Mileage:  "+chosenN[5].padEnd(33) +chosenF[5] +"\n"+
+            "Top Speed:    "+chosenN[6].padEnd(33) +chosenF[6] +"\n"+
+            "0-60:         "+chosenN[7].padEnd(33) +chosenF[7]
+        );
+        console.log("That's quite the difference, isn't it?")
+
     }
 
 }
