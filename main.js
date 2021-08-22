@@ -48,26 +48,26 @@ window.onload = function() {
         //ask user to choose normal car
         alert("This tool will let you see the difference between modern normal cars and a Ferrari!");
         let nChoice = Number(prompt("First, please choose a normal car:\r\n[1] "
-        + corolla[0]+"\r\n[2] "+accord[0]+"\r\n[3] "+mustang[0]+"\r\nPlease eenter the number of the car you would like."));
+        + corolla[0]+"\r\n[2] "+accord[0]+"\r\n[3] "+mustang[0]+"\r\nPlease enter the number of the car you would like."));
         
         //validate input
         while(isNaN(nChoice) || nChoice < 1 || nChoice > 3)
         {
             alert("Not a valid input, please only enter the number of the car you would like to choose.");
             nChoice = Number(prompt("First, please choose a normal car:\r\n[1] "
-            + corolla[0]+"\r\n[2] "+accord[0]+"\r\n[3] "+mustang[0]+"\r\nPlease eenter the number of the car you would like."));
+            + corolla[0]+"\r\n[2] "+accord[0]+"\r\n[3] "+mustang[0]+"\r\nPlease enter the number of the car you would like."));
         }
         
         //ask user to chose ferrari    
         let fChoice = Number(prompt("Now, please chose a Ferrari!:\r\n[1] "
-        + enzo[0]+"\r\n[2] "+italia[0]+"\r\n[3] "+gtb[0]+"\r\nPlease eenter the number of the car you would like."));
+        + enzo[0]+"\r\n[2] "+italia[0]+"\r\n[3] "+gtb[0]+"\r\nPlease enter the number of the car you would like."));
 
         //validate input 
         while(isNaN(fChoice) || fChoice < 1 || fChoice > 3)
         {
             alert("Not a valid input, please only enter the number of the car you would like to choose.");
             fChoice = Number(prompt("Now, please chose a Ferrari!:\r\n[1] "
-            + enzo[0]+"\r\n[2] "+italia[0]+"\r\n[3] "+gtb[0]+"\r\nPlease eenter the number of the car you would like."));
+            + enzo[0]+"\r\n[2] "+italia[0]+"\r\n[3] "+gtb[0]+"\r\nPlease enter the number of the car you would like."));
         }
         DisplayCompare(nChoice,fChoice);
 
@@ -98,7 +98,8 @@ window.onload = function() {
 
         //.padEnd(33)
 
-        //display comparison
+        //display comparison - prints to console for now.
+        alert("Results printing to console for now.")
         console.log(
             "Car:          "+chosenN[0].padEnd(33) +chosenF[0]+"\n"+            
             "Price:        "+chosenN[1].padEnd(33) +chosenF[1] +"\n"+
@@ -110,7 +111,5 @@ window.onload = function() {
             "0-60:         "+chosenN[7].padEnd(33) +chosenF[7]
         );
         console.log("That's quite the difference, isn't it?")
-
     }
-
 }
