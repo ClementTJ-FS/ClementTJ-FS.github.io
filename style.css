@@ -49,6 +49,29 @@ h4{
     font-size: 24px;
 }
 
+#btn1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#compareTable{
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.label{
+    display: block;
+    text-align: center;
+}
+
+.cars{   
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .carI{
     display: block;
