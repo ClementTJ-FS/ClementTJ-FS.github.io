@@ -18,17 +18,19 @@
        </p><br><br>
 
        <h3>Want to compare a normal car to a Ferrari?</h3>
-       <label  class="label" for="cars">Choose a  normal car:</label>
+       <label  class="label" for="carN">Choose a  normal car:</label>
 
-        <select name="cars" class="cars">
+       
+        <select id="carN">
         <option value="corolla">2021 Toyota Corolla</option>
         <option value="accord">2021 Honda Accord</option>
         <option value="mustang">2021 Ford Mustang GT</option>
         </select>
 
-        <label class="label" for="Fcars">Choose a Ferrari:</label>
 
-        <select name="Fcars" class="cars">
+        <label class="label" for="carF">Choose a Ferrari:</label>
+
+        <select id="carF">
         <option value="enzo">2003 Ferrari Enzo</option>
         <option value="italia">2015 Ferrari 458 Italia</option>
         <option value="gtb">2022 Ferrari 296 GTB</option>
@@ -37,7 +39,7 @@
         <button id="btn1" type="button" form="cars">See the difference</button>
 
         <table id="compareTable">
-            <tr>
+            <tr id="tableHead">
                 <th>Car</th>
                 <th>Price</th>
                 <th>Engine</th>
@@ -47,6 +49,28 @@
                 <th>Top Speed</th>
                 <th>0-60</th>
             </tr>
+            <tr id="row1">
+                <td id="nCarData0"></td>
+                <td id="nCarData1"></td>
+                <td id="nCarData2"></td>
+                <td id="nCarData3"></td>
+                <td id="nCarData4"></td>
+                <td id="nCarData5"></td>
+                <td id="nCarData6"></td>
+                <td id="nCarData7"></td>    
+            </tr>
+                
+            <tr id="row2">
+                <td id="fCarData0"></td>
+                <td id="fCarData1"></td>
+                <td id="fCarData2"></td>
+                <td id="fCarData3"></td>
+                <td id="fCarData4"></td>
+                <td id="fCarData5"></td>
+                <td id="fCarData6"></td>
+                <td id="fCarData7"></td>
+            </tr>
+               
         </table>
 
        <!---<p id ="compareToolLink"><a id="compareL" href="index.html">Compare a normal car to a Ferrari.</a></p>-->

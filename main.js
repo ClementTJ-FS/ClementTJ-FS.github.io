@@ -2,19 +2,13 @@
 
 //App will use user-selected normal car and compare to user-selected ferrari
 
-//Alert user - Explain app 
+//display dropdown of normal cars and ferraris
 
-//display list of normal cars 
+//ask user to pick one of each
 
-//ask user to pick one
+//function to get info from collection for each car and fill table with data
 
-//display list of ferraris
-
-//ask user to pick one
-
-//function to get info from collection for each car and arrange in legible way
-
-//display the comparioson to user
+//display the comparioson to user in a table
 
 //end
 
@@ -22,7 +16,7 @@
 
 //cars - using arrays for now
 //[name, price, engine, hp, torque, mpg, topspeed, 0-60]
-//["","","","","","","",""]
+
 //normal
 const corolla = ["2021 Toyota Corolla","From $20,025","2.0L I4","169 hp","126 lb-ft","31 city / 40 highway","118 mph","8.2 sec"];
 const accord = ["2021 Honda Accord","From $24,970","2.0L Turbocharged I4","252 hp","273 lb-ft","30 city / 38 highway","115 mph","7.2 sec"];
@@ -33,83 +27,60 @@ const enzo = ["2003 Ferrari Enzo","From $643,330","6.0L DOHC V12","651 hp","485 
 const italia = ["2015 Ferrari 458 Italia","From $245,000","4.5L V8","562 hp","398 lb-ft","13 city / 17 highway","202 mph","3.4 sec"];
 const gtb = ["2022 Ferrari 296 GTB","From $321,000","3.0L Twin-Turbo V6/165hp Electric","819 hp","546 lb-ft","Unknown ","205 mph","2.9 sec"];
 
-//The script should only run if the link is clicked.
-// Wait for the page to load first
-window.onload = function() {
+//wait for page to load before running
+window.onload = function(){
 
-    //Get a reference to the link on the page
-    // with an id of "compareL"
-    var a = document.getElementById("compareL");
+    //assign button to variable and only run script if clicked
+    let btn = document.getElementById('btn1');
+    btn.onclick = function(){
+        //assign the table to variable
+        let resultTable = document.getElementById('compareTable');
 
-    //Set code to run when the link is clicked
-    // by assigning a function to "onclick"
-    a.onclick = function() {
+        //make the table visible
+        resultTable.style.visibility = "visible";
 
-        //ask user to choose normal car
-        alert("This tool will let you see the difference between modern normal cars and a Ferrari!");
-        let nChoice = Number(prompt("First, please choose a normal car:\r\n[1] "
-        + corolla[0]+"\r\n[2] "+accord[0]+"\r\n[3] "+mustang[0]+"\r\nPlease enter the number of the car you would like."));
-        
-        //validate input
-        while(isNaN(nChoice) || nChoice < 1 || nChoice > 3)
-        {
-            alert("Not a valid input, please only enter the number of the car you would like to choose.");
-            nChoice = Number(prompt("First, please choose a normal car:\r\n[1] "
-            + corolla[0]+"\r\n[2] "+accord[0]+"\r\n[3] "+mustang[0]+"\r\nPlease enter the number of the car you would like."));
-        }
-        
-        //ask user to chose ferrari    
-        let fChoice = Number(prompt("Now, please chose a Ferrari!:\r\n[1] "
-        + enzo[0]+"\r\n[2] "+italia[0]+"\r\n[3] "+gtb[0]+"\r\nPlease enter the number of the car you would like."));
+        //assign selected cars to variables
+        let carN = document.getElementById('carN').value;
+        let carF = document.getElementById('carF').value;
 
-        //validate input 
-        while(isNaN(fChoice) || fChoice < 1 || fChoice > 3)
-        {
-            alert("Not a valid input, please only enter the number of the car you would like to choose.");
-            fChoice = Number(prompt("Now, please chose a Ferrari!:\r\n[1] "
-            + enzo[0]+"\r\n[2] "+italia[0]+"\r\n[3] "+gtb[0]+"\r\nPlease enter the number of the car you would like."));
-        }
-        DisplayCompare(nChoice,fChoice);
-
-        return false;
-    }
-
-    //function to display comparison
-    function DisplayCompare(n,f){
         //decide which nomral car is chosen.
         let chosenN;
-        if(n === 1){
+        if(carN === 'corolla'){
             chosenN = corolla;
-        }else if(n === 2){
+        }else if(carN === 'accord'){
             chosenN = accord;
-        }else if(n === 3){
+        }else if(carN === 'mustang'){
             chosenN = mustang;
         }
         
         //decide which ferrari is chosen.
         let chosenF;
-        if(f === 1){
+        if(carF === 'enzo'){
             chosenF = enzo;
-        }else if(f === 2){
+        }else if(carF === 'italia'){
             chosenF = italia;
-        }else if(f === 3){
+        }else if(carF === 'gtb'){
             chosenF = gtb;
         }
 
-        //.padEnd(33)
+        //fill cells with data
+        document.getElementById('nCarData0').innerHTML = chosenN[0];
+        document.getElementById('nCarData1').innerHTML = chosenN[1];
+        document.getElementById('nCarData2').innerHTML = chosenN[2];
+        document.getElementById('nCarData3').innerHTML = chosenN[3];
+        document.getElementById('nCarData4').innerHTML = chosenN[4];
+        document.getElementById('nCarData5').innerHTML = chosenN[5];
+        document.getElementById('nCarData6').innerHTML = chosenN[6];
+        document.getElementById('nCarData7').innerHTML = chosenN[7];
 
-        //display comparison - prints to console for now.
-        alert("Results printing to console for now.")
-        console.log(
-            "Car:          "+chosenN[0].padEnd(33) +chosenF[0]+"\n"+            
-            "Price:        "+chosenN[1].padEnd(33) +chosenF[1] +"\n"+
-            "Engine:       "+chosenN[2].padEnd(33) +chosenF[2] +"\n"+
-            "Horsepower:   "+chosenN[3].padEnd(33) +chosenF[3] +"\n"+
-            "Torque:       "+chosenN[4].padEnd(33) +chosenF[4] +"\n"+
-            "Gas Mileage:  "+chosenN[5].padEnd(33) +chosenF[5] +"\n"+
-            "Top Speed:    "+chosenN[6].padEnd(33) +chosenF[6] +"\n"+
-            "0-60:         "+chosenN[7].padEnd(33) +chosenF[7]
-        );
-        console.log("That's quite the difference, isn't it?")
+        document.getElementById('fCarData0').innerHTML = chosenF[0];
+        document.getElementById('fCarData1').innerHTML = chosenF[1];
+        document.getElementById('fCarData2').innerHTML = chosenF[2];
+        document.getElementById('fCarData3').innerHTML = chosenF[3];
+        document.getElementById('fCarData4').innerHTML = chosenF[4];
+        document.getElementById('fCarData5').innerHTML = chosenF[5];
+        document.getElementById('fCarData6').innerHTML = chosenF[6];
+        document.getElementById('fCarData7').innerHTML = chosenF[7];
+        
     }
 }
